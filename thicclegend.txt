@@ -53,6 +53,7 @@ _G.Stomp = (stomp and true or false)
 while _G.Stomp do 
 wait()
 game.ReplicatedStorage.Remotes.UseTool:FireServer("Stomp")
+end
 end)
 BuyWindow:AddToggle("Auto Buy Fist", function(fist)
 _G.Fist = (fist and true or false)
