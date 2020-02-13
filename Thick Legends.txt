@@ -20,6 +20,7 @@ _G.Sell = (sell and true or false)
 while _G.Sell do
 wait()
 game.ReplicatedStorage.Remotes.YieldSell:InvokeServer()
+end
 end)
 MainWindow:AddToggle("Auto Burger", function(burger)
 _G.Burger = (burger and true or false)
