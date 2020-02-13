@@ -71,3 +71,11 @@ local A_3 = "Stomach"
 game:GetService("ReplicatedStorage").Remotes.RequestBuyAll:FireServer(A_3)
 end
 end)
+BuyWindow:AddToggle("Auto Buy Jumps", function(jump)
+_G.Jumps = (jump and true or false)
+while _G.Jumps do 
+wait()
+local A_4 = "Jump"
+game:GetService("ReplicatedStorage").Remotes.RequestBuyAll:FireServer(A_4)
+end
+end)
