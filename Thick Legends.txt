@@ -80,3 +80,4 @@ local A_4 = "Jump"
 game:GetService("ReplicatedStorage").Remotes.RequestBuyAll:FireServer(A_4)
 end
 end)
+
