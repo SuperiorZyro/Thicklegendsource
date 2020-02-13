@@ -80,4 +80,11 @@ local A_4 = "Jump"
 game:GetService("ReplicatedStorage").Remotes.RequestBuyAll:FireServer(A_4)
 end
 end)
-
+BuyWindow:AddToggle("Auto Buy Rebirth", function(rank)
+_G.Jumps = (rank and true or false)
+while _G.Ranks do 
+wait()
+local A_5 = "Rebirth"
+game:GetService("ReplicatedStorage").Remotes.RequestBuyAll:FireServer(A_5)
+end
+end)
