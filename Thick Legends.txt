@@ -9,6 +9,8 @@ MainWindow:AddToggle("Enable Auto Farm", function(farm)
  _G.Toggle = (farm and true or false)
     while _G.Toggle do
     wait()
+    game.ReplicatedStorage.Remotes.UseTool:FireServer("Punch")
+    wait()
     game.ReplicatedStorage.Remotes.UseTool:FireServer("Food")
     wait()
     game.ReplicatedStorage.Remotes.YieldSell:InvokeServer()
