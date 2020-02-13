@@ -1,0 +1,16 @@
+local library = loadstring(game:HttpGet("https://pastebin.com/raw/7Z6TzFnv", true))()
+local MainWindow = library:CreateWindow({
+  text = "Main"
+})
+local credits = library:CreateWindow({text='Credits'})
+credits:AddLabel("Credits\nInori: Dragging\nwally: UI\n Scripts: AlphaZyro#5113")
+
+MainWindow:AddToggle("Enable Auto Farm", function(farm)
+ _G.Toggle = (farm and true or false)
+    while _G.Toggle do
+    wait()
+    game.ReplicatedStorage.Remotes.UseTool:FireServer("Food")
+    wait()
+    game.ReplicatedStorage.Remotes.YieldSell:InvokeServer()
+end
+end)
