@@ -2,6 +2,7 @@ local library = loadstring(game:HttpGet("https://pastebin.com/raw/7Z6TzFnv", tru
 local MainWindow = library:CreateWindow({
   text = "Main"
 })
+local BuyWindow = library:CreateWindow({text='Buy'})
 local credits = library:CreateWindow({text='Credits'})
 credits:AddLabel("Credits\nInori: Dragging\nwally: UI\n Scripts: AlphaZyro#5113")
 
@@ -14,5 +15,55 @@ MainWindow:AddToggle("Enable Auto Farm", function(farm)
     game.ReplicatedStorage.Remotes.UseTool:FireServer("Food")
     wait()
     game.ReplicatedStorage.Remotes.YieldSell:InvokeServer()
+end
+end)
+MainWindow:AddToggle("Auto Burger", function(burger)
+_G.Burger = (burger and true or false)
+local a = game.Workspace:GetDescendants()
+while _G.Burger do 
+wait()
+
+for i,v in pairs(a) do
+if v.Name == "Burger" then
+   v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame  
+end
+end
+end
+end)
+
+MainWindow:AddToggle("Auto Coins", function(coin)
+_G.Coins = (coin and true or false)
+local a = game.Workspace:GetDescendants()
+while _G.Coins do
+wait()
+for i,v in pairs(a) do
+ if v.Name == "Coin" then
+   v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame  
+ end
+end
+end
+end)
+BuyWindow:AddToggle("Auto Buy Fist", function(fist)
+_G.Fist = (fist and true or false)
+while _G.Fist do 
+wait()
+local A_1 = "Fist"
+game:GetService("ReplicatedStorage").Remotes.RequestBuyAll:FireServer(A_1)
+end
+end)
+BuyWindow:AddToggle("Auto Buy Food", function(food)
+_G.Food = (food and true or false)
+while _G.Food do 
+wait()
+local A_2 = "Food"
+game:GetService("ReplicatedStorage").Remotes.RequestBuyAll:FireServer(A_2)
+end
+end)
+BuyWindow:AddToggle("Auto Buy Stomach", function(stomach)
+_G.Stomach = (stomach and true or false)
+while _G.Stomach do 
+wait()
+local A_3 = "Stomach"
+game:GetService("ReplicatedStorage").Remotes.RequestBuyAll:FireServer(A_3)
 end
 end)
