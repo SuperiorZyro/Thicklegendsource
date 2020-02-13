@@ -48,6 +48,12 @@ for i,v in pairs(a) do
 end
 end
 end)
+MainWindow:AddToggle("Auto Stomp", function(stomp)
+_G.Stomp = (stomp and true or false)
+while _G.Stomp do 
+wait()
+game.ReplicatedStorage.Remotes.UseTool:FireServer("Stomp")
+end)
 BuyWindow:AddToggle("Auto Buy Fist", function(fist)
 _G.Fist = (fist and true or false)
 while _G.Fist do 
