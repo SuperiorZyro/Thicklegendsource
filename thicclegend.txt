@@ -4,7 +4,7 @@ local MainWindow = library:CreateWindow({
 })
 local BuyWindow = library:CreateWindow({text='Buy'})
 local credits = library:CreateWindow({text='Credits'})
-credits:AddLabel("Credits\nInori: Dragging\nwally: UI\n Scripts: AlphaZyro#5113")
+credits:AddLabel("Credits\nInori: Dragging\nwally: UI\nScripts: AlphaZyro#5113\nInf Jump: Bond#1080\nand ItzDan#6276")
 
 MainWindow:AddToggle("Enable Auto Farm", function(farm)
  _G.Toggle = (farm and true or false)
@@ -61,6 +61,14 @@ while _G.Ring do
 wait()
 for ah,ai in pairs(game:GetService("Workspace"):GetDescendants()) do if ai.Name=="touch" then wait() ai.CFrame=game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame end end
 end
+end)
+MainWindow:AddToggle("Inf Jump", function(inf)
+_G.infjump = (inf and true or false)
+game:GetService("UserInputService").JumpRequest:connect(function()
+    if _G.infjump then
+        game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+    end
+end)
 end)
 MainWindow:AddButton("Unlock All Island", function()
 game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island1.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island2.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island3.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island4.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island5.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island6.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island7.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island8.Position)
