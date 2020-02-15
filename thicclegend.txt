@@ -55,9 +55,6 @@ wait()
 game.ReplicatedStorage.Remotes.UseTool:FireServer("Stomp")
 end
 end)
-MainWindow:AddButton("Unlock All Island", function()
-game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island1.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island2.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island3.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island4.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island5.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island6.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island7.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island8.Position)
-end)
 MainWindow:AddToggle("Auto Ring", function(rings)
 _G.Ring = (rings and true or false)
 while _G.Ring do
@@ -80,6 +77,9 @@ game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace")["Green Ri
 wait()
 game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace")["Purple Ring"].Ring.Position)
 end
+end)
+MainWindow:AddButton("Unlock All Island", function()
+game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island1.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island2.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island3.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island4.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island5.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island6.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island7.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island8.Position)
 end)
 BuyWindow:AddToggle("Auto Buy Fist", function(fist)
 _G.Fist = (fist and true or false)
