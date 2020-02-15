@@ -58,7 +58,7 @@ end)
 MainWindow:AddButton("Unlock All Island", function()
 game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island1.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island2.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island3.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island4.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island5.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island6.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island7.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island8.Position)
 end)
-MainWindow:AddTiggle("Auto Ring", function(rings)
+MainWindow:AddToggle("Auto Ring", function(rings)
 _G.Ring = (rings and true or false)
 while _G.Ring do
 wait()
