@@ -81,6 +81,29 @@ local A_1 = "Fist"
 game:GetService("ReplicatedStorage").Remotes.RequestBuyAll:FireServer(A_1)
 end
 end)
+MainWindow:AddBox("WalkSpeed", function(object, focus)
+  if focus then
+      function speedbypass()
+local ws = tonumber(object.Text) or 16
+local lplr = game.Players.LocalPlayer
+lplr.Chatted:connect(function(msg)
+if string.sub(msg, 1, 5) == "/e ws" then    
+   ws = string.match(msg, "%d+")
+end
+end)
+lplr.Character.Humanoid.Changed:connect(function()
+if lplr.Character.Humanoid.WalkSpeed ~= ws then
+   lplr.Character.Humanoid.WalkSpeed = ws
+end
+end)
+end
+speedbypass()
+game.Players.LocalPlayer.CharacterAdded:connect(function(chr)
+chr:WaitForChild("Humanoid")
+speedbypass()
+end)
+  end
+end)
 BuyWindow:AddToggle("Auto Buy Food", function(food)
 _G.Food = (food and true or false)
 while _G.Food do 
