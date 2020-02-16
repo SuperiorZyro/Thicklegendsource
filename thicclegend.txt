@@ -113,3 +113,78 @@ local A_5 = "Rebirth"
 game:GetService("ReplicatedStorage").Remotes.RequestBuyAll:FireServer(A_5)
 end
 end)
+BuyWindow:AddLabel("Auto Buy Pet")
+BuyWindow:AddDropdown({'Red', 'Green', 'Sky', 'Blue', 'Orange', 'Maroon', 'Shiny', 'Mushroom', 'Chocolate'}, function(egg)
+
+end)
+BuyWindow:AddToggle("Buy Pet", function(petus)
+_G.pet = (petus and true or false)
+while _G.pet do
+wait()
+if _G.pet then
+if egg == Red then
+game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Pet Stand Red")
+end
+if egg == Green then
+game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Pet Stand Green")
+end
+if egg == Sky then
+game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Pet Stand Sky")
+end
+if egg == Blue then
+game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Pet Stand Blue")
+end
+if egg == Orange then
+game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Pet Stand Orange")
+end
+if egg == Maroon then
+game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Pet Stand Maroon")
+end
+if egg == Shiny then
+game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Pet Stand Shiny")
+end
+if egg == Mushroom then
+game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Pet Stand Mushroom")
+end
+if egg == Chocolate then
+game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Pet Stand Chocolate")
+end
+end
+end)
+BuyWindow:AddLabel("Auto Buy Dance")
+BuyWindow:AddDropdown({'Red', 'Green', 'Sky', 'Blue', 'Orange', 'Maroon', 'Shiny', 'Mushroom', 'Chocolate'}, function(dan)
+
+end)
+BuyWindow:AddToggle("Buy Dance", function(Dance)
+_G.dance = (Dance and true or false)
+while _G.dance do
+wait()
+if dan == Red then
+game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Dance Stand Red")
+end
+if dan == Green then
+game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Dance Stand Green")
+end
+if dan == Sky then
+game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Dance Stand Sky")
+end
+if dan == Blue then
+game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Dance Stand Blue")
+end
+if dan == Orange then
+game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Dance Stand Orange")
+end
+if dan == Maroon then
+game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Dance Stand Maroon")
+end
+if dan == Shiny then
+game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Dance Stand Shiny")
+end
+if dan == Mushroom then
+game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Dance Stand Mushroom")
+end
+if dan == Chocolate then
+game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Dance Stand Chocolate")
+end
+end
+end)
