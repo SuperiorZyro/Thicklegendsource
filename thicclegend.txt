@@ -121,7 +121,6 @@ BuyWindow:AddToggle("Buy Pet", function(petus)
 _G.pet = (petus and true or false)
 while _G.pet do
 wait()
-if _G.pet then
 if egg == Red then
 game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Pet Stand Red")
 end
