@@ -217,3 +217,13 @@ if TP == 'Shroom Oasis' then
 game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island8.Position)
 end
 end)
+function zigzag(X) return math.acos(math.cos(X*math.pi))/math.pi end
+
+counter = 0
+while wait(0.1)do
+ game.CoreGui.UILibrary.Main.Underline.BackgroundColor3 = Color3.fromHSV(zigzag(counter),1,1)
+ game.CoreGui.UILibrary.Buy.Underline.BackgroundColor3 = Color3.fromHSV(zigzag(counter),1,1)
+ game.CoreGui.UILibrary.Teleport.Underline.BackgroundColor3 = Color3.fromHSV(zigzag(counter),1,1)
+ game.CoreGui.UILibrary.Credits.Underline.BackgroundColor3 = Color3.fromHSV(zigzag(counter),1,1)
+ counter = counter + 0.01
+end
