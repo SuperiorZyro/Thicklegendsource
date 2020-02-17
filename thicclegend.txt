@@ -3,6 +3,7 @@ local MainWindow = library:CreateWindow({
   text = "Main"
 })
 local BuyWindow = library:CreateWindow({text='Buy'})
+local TPWindow = library:CreateWindow({text='Teleport'})
 local credits = library:CreateWindow({text='Credits'})
 credits:AddLabel("Credits\nInori: Dragging\nwally: UI\nScripts: AlphaZyro#5113\nInf Jump: Bond#1080\nand ItzDan#6276")
 
@@ -70,7 +71,7 @@ game:GetService("UserInputService").JumpRequest:connect(function()
     end
 end)
 end)
-MainWindow:AddButton("Unlock All Island", function()
+TPWindow:AddButton("Unlock All Island", function()
 game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island1.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island2.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island3.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island4.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island5.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island6.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island7.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island8.Position)
 end)
 BuyWindow:AddToggle("Auto Buy Fist", function(fist)
@@ -185,5 +186,34 @@ end
 if dan == Chocolate then
 game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Dance Stand Chocolate")
 end
+end
+end)
+TPWindow:AddDropdown({'Island Teleport', 'Spawn', 'Veggie Meadows', 'Bread Desert', 'Icecream Tundra', 'Pizza Wasteland', 'Donut Galaxy', 'Crystal Candyland', 'Chocolate Realm', 'Shroom Oasis'}, function(TP)
+if TP == 'Spawn' then
+game.Players.LocalPlayer.Character:MoveTo('1393.85938, 691.653564, 2067.96875')
+end
+if TP == 'Veggie Meadows' then 
+game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island1.Position)
+end
+if TP == 'Bread Desert' then 
+game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island2.Position)
+end
+if TP == 'Icecream Tundra' then 
+game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island3.Position)
+end
+if TP == 'Pizza Wasteland' then 
+game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island4.Position)
+end
+if TP == 'Donut Galaxy' then 
+game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island5.Position)
+end
+if TP == 'Crystal Candyland' then 
+game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island6.Position)
+end
+if TP == 'Chocolate Realm' then 
+game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island7.Position)
+end
+if TP == 'Shroom Oasis' then 
+game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island8.Position)
 end
 end)
