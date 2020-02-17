@@ -6,7 +6,7 @@ local BuyWindow = library:CreateWindow({text='Buy'})
 local TPWindow = library:CreateWindow({text='Teleport'})
 local credits = library:CreateWindow({text='Credits'})
 credits:AddLabel("Credits\nInori: Dragging\nwally: UI\nScripts: AlphaZyro#5113\nInf Jump: Bond#1080\nand ItzDan#6276")
-credits:AddButton("Copy Discord Link", function()
+credits:AddButton("Copy Discord Link ", function()
 setclipboard("https://discord.gg/ZM5nqDr")
 end)
 
