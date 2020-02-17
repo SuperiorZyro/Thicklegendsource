@@ -5,7 +5,10 @@ local MainWindow = library:CreateWindow({
 local BuyWindow = library:CreateWindow({text='Buy'})
 local TPWindow = library:CreateWindow({text='Teleport'})
 local credits = library:CreateWindow({text='Credits'})
-credits:AddLabel("Credits\nInori: Dragging\nwally: UI\nScripts: AlphaZyro#5113\nInf Jump: Bond#1080\nand ItzDan#6276")
+credits:AddLabel("Credits\nInori: Dragging\nwally: UI\nScripts: AlphaZyro#5113\nInf Jump: Bond#1080\nand ItzDan#6276\nJoin Discord Server")
+credits:AddButton("Copy Discord Link", function()
+setclipboard("https://discord.gg/ZM5nqDr")
+end)
 
 MainWindow:AddToggle("Enable Auto Farm", function(farm)
  _G.Toggle = (farm and true or false)
@@ -33,7 +36,7 @@ for i,v in pairs(a) do
 if v.Name == "Burger" then
    v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame  
 end
-end
+en
 end
 end)
 
