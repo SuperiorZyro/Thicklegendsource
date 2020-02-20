@@ -142,8 +142,8 @@ local boatspeed = MainWindow:Slider("Boat Speed", {
    min = 40;
    max = 500;
    flag = 'boatt'
-}, function(boat)
-   workspace:FindFirstChild(tostring(game:GetService("Players").LocalPlayer).. "'s Boat")["Controller"]["VehicleSeat"].MaxSpeed = boat;
+}, function(n)
+   workspace:FindFirstChild(tostring(game:GetService("Players").LocalPlayer).. "'s Boat")["Controller"]["VehicleSeat"].MaxSpeed = n;
 end)
 function zigzag(X) return math.acos(math.cos(X*math.pi))/math.pi end
 
