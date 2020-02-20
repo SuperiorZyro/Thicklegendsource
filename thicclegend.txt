@@ -1,232 +1,155 @@
-local library = loadstring(game:HttpGet("https://pastebin.com/raw/7Z6TzFnv", true))()
-local MainWindow = library:CreateWindow({
-  text = "Main"
-})
-local BuyWindow = library:CreateWindow({text='Buy'})
-local TPWindow = library:CreateWindow({text='Teleport'})
-local credits = library:CreateWindow({text='Credits'})
-credits:AddLabel("Credits\nInori: Dragging\nwally: UI\nScripts: AlphaZyro#5113\nInf Jump: Bond#1080\nand ItzDan#6276")
-credits:AddButton("Copy Discord Link ", function()
-setclipboard("https://discord.gg/ZM5nqDr")
-end)
-
-MainWindow:AddToggle("Enable Auto Farm", function(farm)
- _G.Toggle = (farm and true or false)
-    while _G.Toggle do
-    wait()
-    game.ReplicatedStorage.Remotes.UseTool:FireServer("Punch")
-    wait()
-    game.ReplicatedStorage.Remotes.UseTool:FireServer("Food")
-end
-end)
-MainWindow:AddToggle("Auto Sell", function(sell)
-_G.Sell = (sell and true or false)
-while _G.Sell do
-wait()
-game.ReplicatedStorage.Remotes.YieldSell:InvokeServer()
-end
-end)
-MainWindow:AddToggle("Auto Burger", function(burger)
-_G.Burger = (burger and true or false)
-local a = game.Workspace:GetDescendants()
-while _G.Burger do 
-wait()
-
-for i,v in pairs(a) do
-if v.Name == "Burger" then
-   v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame  
-end
-end
-end
-end)
-
-MainWindow:AddToggle("Auto Coins", function(coin)
-_G.Coins = (coin and true or false)
-local a = game.Workspace:GetDescendants()
-while _G.Coins do
-wait()
-for i,v in pairs(a) do
- if v.Name == "Coin" then
-   v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame  
- end
-end
-end
-end)
-MainWindow:AddToggle("Auto Stomp", function(stomp)
-_G.Stomp = (stomp and true or false)
-while _G.Stomp do 
-wait()
-game.ReplicatedStorage.Remotes.UseTool:FireServer("Stomp")
-end
-end)
-MainWindow:AddToggle("Auto Ring", function(rings)
-_G.Ring = (rings and true or false)
-while _G.Ring do
-wait()
-for ah,ai in pairs(game:GetService("Workspace"):GetDescendants()) do if ai.Name=="touch" then wait() ai.CFrame=game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame end end
-end
-end)
-MainWindow:AddToggle("Inf Jump", function(inf)
-_G.infjump = (inf and true or false)
-game:GetService("UserInputService").JumpRequest:connect(function()
-    if _G.infjump then
-        game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+local library = loadstring(game:HttpGet("https://pastebin.com/raw/YPtwTSaS", true))()
+local MainWindow = library:CreateWindow('Main')
+local TPWindow = library:CreateWindow('Teleports')
+print("I'll add more tps soon")
+local AutoFish = MainWindow:Toggle("Auto Fish", {flag = "fish"}, function()
+    if MainWindow.flags.fish == true then
+        _G.fishing = true
     end
-end)
-end)
-TPWindow:AddButton("Unlock All Island", function()
-game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island1.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island2.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island3.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island4.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island5.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island6.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island7.Position)wait(3)game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island8.Position)
-end)
-BuyWindow:AddToggle("Auto Buy Fist", function(fist)
-_G.Fist = (fist and true or false)
-while _G.Fist do 
+    if MainWindow.flags.fish == false then
+        _G.fishing = false
+    end
+if _G.fishing then
+while true do
 wait()
-local A_1 = "Fist"
-game:GetService("ReplicatedStorage").Remotes.RequestBuyAll:FireServer(A_1)
+if game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool")["Bobbers"]["Bobber"]["Fish"].Value ~= nil then
+wait(1)
+local Target = game:GetService("ReplicatedStorage").CloudClientResources.Communication.Events.FishCaught;
+Target:FireServer();
+game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool")["Bobbers"]["Bobber"]["Fish"].Value = nil
 end
-end)
-BuyWindow:AddToggle("Auto Buy Food", function(food)
-_G.Food = (food and true or false)
-while _G.Food do 
-wait()
-local A_2 = "Food"
-game:GetService("ReplicatedStorage").Remotes.RequestBuyAll:FireServer(A_2)
-end
-end)
-BuyWindow:AddToggle("Auto Buy Stomach", function(stomach)
-_G.Stomach = (stomach and true or false)
-while _G.Stomach do 
-wait()
-local A_3 = "Stomach"
-game:GetService("ReplicatedStorage").Remotes.RequestBuyAll:FireServer(A_3)
-end
-end)
-BuyWindow:AddToggle("Auto Buy Jumps", function(jump)
-_G.Jumps = (jump and true or false)
-while _G.Jumps do 
-wait()
-local A_4 = "Jump"
-game:GetService("ReplicatedStorage").Remotes.RequestBuyAll:FireServer(A_4)
-end
-end)
-BuyWindow:AddToggle("Auto Buy Rebirth", function(rank)
-_G.Ranks = (rank and true or false)
-while _G.Ranks do 
-wait()
-local A_5 = "Rebirth"
-game:GetService("ReplicatedStorage").Remotes.RequestBuyAll:FireServer(A_5)
-end
-end)
-BuyWindow:AddLabel("Auto Buy Pet")
-BuyWindow:AddDropdown({'Red', 'Green', 'Sky', 'Blue', 'Orange', 'Maroon', 'Shiny', 'Mushroom', 'Chocolate'}, function(egg)
-
-end)
-BuyWindow:AddToggle("Buy Pet", function(petus)
-_G.pet = (petus and true or false)
-while _G.pet do
-wait()
-if egg == Red then
-game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Pet Stand Red")
-end
-if egg == Green then
-game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Pet Stand Green")
-end
-if egg == Sky then
-game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Pet Stand Sky")
-end
-if egg == Blue then
-game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Pet Stand Blue")
-end
-if egg == Orange then
-game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Pet Stand Orange")
-end
-if egg == Maroon then
-game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Pet Stand Maroon")
-end
-if egg == Shiny then
-game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Pet Stand Shiny")
-end
-if egg == Mushroom then
-game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Pet Stand Mushroom")
-end
-if egg == Chocolate then
-game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Pet Stand Chocolate")
 end
 end
 end)
-BuyWindow:AddLabel("Auto Buy Dance")
-BuyWindow:AddDropdown({'Red', 'Green', 'Sky', 'Blue', 'Orange', 'Maroon', 'Shiny', 'Mushroom', 'Chocolate'}, function(dan)
-
-end)
-BuyWindow:AddToggle("Buy Dance", function(Dance)
-_G.dance = (Dance and true or false)
-while _G.dance do
-wait()
-if dan == Red then
-game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Dance Stand Red")
-end
-if dan == Green then
-game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Dance Stand Green")
-end
-if dan == Sky then
-game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Dance Stand Sky")
-end
-if dan == Blue then
-game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Dance Stand Blue")
-end
-if dan == Orange then
-game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Dance Stand Orange")
-end
-if dan == Maroon then
-game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Dance Stand Maroon")
-end
-if dan == Shiny then
-game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Dance Stand Shiny")
-end
-if dan == Mushroom then
-game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Dance Stand Mushroom")
-end
-if dan == Chocolate then
-game.ReplicatedStorage.Remotes.RequestPurchaseChest:InvokeServer("Chest Dance Stand Chocolate")
+local AutoSell = MainWindow:Toggle("Auto Sell", {flag = "seller"}, function()
+    if MainWindow.flags.seller == true then
+        _G.Sell = true
+    end
+    if MainWindow.flags.seller == false then
+        _G.Sell = false
+    end
+while _G.Sell and wait() do
+for _, v in pairs(game:GetService("Players").LocalPlayer["LocalData"]["FishDiscovered"]:GetChildren()) do
+local string_1 = tostring(v);
+local number_1 = 1;
+local Target4 = game:GetService("ReplicatedStorage").CloudClientResources.Communication.Functions.SellItem;
+Target4:InvokeServer(string_1, number_1);
 end
 end
 end)
-TPWindow:AddDropdown({'Island Teleport', 'Spawn', 'Veggie Meadows', 'Bread Desert', 'Icecream Tundra', 'Pizza Wasteland', 'Donut Galaxy', 'Crystal Candyland', 'Chocolate Realm', 'Shroom Oasis'}, function(TP)
-if TP == 'Spawn' then
-game.Players.LocalPlayer.Character:MoveTo('1393.85938, 691.653564, 2067.96875')
+local gamepass = MainWindow:Button("Unlock All Gamepasses", function()
+for _, gamepass in pairs(game:GetService("Players").LocalPlayer["LocalData"]["Gamepasses"]:GetChildren()) do 
+gamepass.Value = true 
 end
-if TP == 'Veggie Meadows' then 
-game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island1.Position)
+end)
+local sharks = MainWindow:Button("Kill Sharks", function()
+    warn("you'll get kicked when you use this!")
+local player = game.Players.LocalPlayer
+while wait() do
+    local sharks = workspace:GetChildren()
+    for i = 1, #sharks do local v = sharks[i]
+        if v:FindFirstChild("Health") and v:FindFirstChild("IsSeaMonster") then
+        pcall(function()
+            player.Character.PrimaryPart.CFrame = v.PrimaryPart.CFrame + Vector3.new(0, 25, 0)
+        end)
+        wait()
+            if player.Character:FindFirstChildOfClass("Tool") then
+                game.ReplicatedStorage.CloudClientResources.Communication.Events.DamageSeaMonster:FireServer(v, v.Health, true)
+            elseif player:FindFirstChild("Backpack") and #player.Backpack:GetChildren() >= 1 then
+                for _,k in pairs(player.Backpack:GetChildren()) do
+                    if k:FindFirstChild("Damage") then
+                        k.Parent = player.Character
+                    end
+                end
+            end
+        end
+    end
+    if player:FindFirstChild("Backpack") and #player.Backpack:GetChildren() >= 2 then
+        for i,v in pairs(player.Backpack:GetChildren()) do
+            if not v:FindFirstChild("Damage") then
+                game:GetService("ReplicatedStorage").CloudClientResources.Communication.Functions.SellItem:InvokeServer(v.Name, 1)
+            end
+        end
+    end
 end
-if TP == 'Bread Desert' then 
-game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island2.Position)
+end)
+local obby = MainWindow:Button("Complete Obby", function()
+local hit = game.Players.LocalPlayer.Character.LowerTorso.Position
+game.Workspace.ObbyCompletedCheck.CFrame= CFrame.new(hit)
+end)
+local tpboat = MainWindow:Button("Teleport to boat", function()
+game:GetService("Players").LocalPlayer.Character["HumanoidRootPart"].CFrame = CFrame.new(workspace:FindFirstChild(tostring(game:GetService("Players").LocalPlayer).. "'s Boat")["Controller"]["VehicleSeat"].Position + Vector3.new(0,2,0))
+end)
+TPWindow:Section('Teleports')
+TPWindow:Dropdown("Teleport", {
+   location = _G;
+   flag = "location";
+   list = {
+        "None";
+        "Port Jackson";
+        "Eruption Island";
+        "Shadow Isles";
+        "Volcano Obby";
+        "Seller";
+        "Supply Shop";
+        "Boat Shop";
+        "Aquarium";
+   }
+}, function(new)
+if _G.location == "Port Jackson" then
+game.Players.LocalPlayer.Character:MoveTo('-43.8462944, 53.4310455, -63.1280746')
 end
-if TP == 'Icecream Tundra' then 
-game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island3.Position)
+if _G.location == "Eruption Island" then
+game.Players.LocalPlayer.Character:MoveTo('2894.20825, 43.8625259, 1458.89417') -- use iy fe to get coords
 end
-if TP == 'Pizza Wasteland' then 
-game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island4.Position)
+if _G.location == "Shadow Isles" then
+game.Players.LocalPlayer.Character:MoveTo('2232.51587, 160.558441, -2384.85254') -- use iy fe to get coords
 end
-if TP == 'Donut Galaxy' then 
-game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island5.Position)
+if _G.location == "Seller" then
+game.Players.LocalPlayer.Character:MoveTo('-49.4391022, 54.363327, -22.6400394')
 end
-if TP == 'Crystal Candyland' then 
-game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island6.Position)
+if _G.location == "Supply Shop" then
+game.Players.LocalPlayer.Character:MoveTo('0.291297406, 52.9713936, 16.6711864')
 end
-if TP == 'Chocolate Realm' then 
-game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island7.Position)
+if _G.location == "Boat Shop" then
+game.Players.LocalPlayer.Character:MoveTo('-24.0961189, 63.8794327, -109.303871')
 end
-if TP == 'Shroom Oasis' then 
-game.Players.LocalPlayer.Character:MoveTo(game:GetService("Workspace").Island8.Position)
+if _G.location == "Aquarium" then
+game.Players.LocalPlayer.Character:MoveTo('-72.5500412, 55.9368286, 84.0517273')
 end
+if _G.location == "Volcano Obby" then
+game.Players.LocalPlayer.Character:MoveTo('3160.37427, 50.7417259, 1529.02515')
+end
+end)
+local fly = MainWindow:Button("Fly (Q to Activate)", function()
+loadstring(game:HttpGet(('https://pastebin.com/raw/MBuMJgQd'),true))()
+end)
+local walkspeedslider = MainWindow:Slider("WalkSpeed", {
+   min = 16;
+   max = 120;
+   flag = 'WalkSpeed'
+}, function(v)
+   game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v;
+end)
+local jumppower = MainWindow:Slider("Jump Power", {
+   min = 40;
+   max = 200;
+   flag = 'JumpPower'
+}, function(b)
+   game.Players.LocalPlayer.Character.Humanoid.JumpPower = b;
+end)
+local boatspeed = MainWindow:Slider("Boat Speed", {
+   min = 40;
+   max = 500;
+   flag = 'boatt'
+}, function(boat)
+   workspace:FindFirstChild(tostring(game:GetService("Players").LocalPlayer).. "'s Boat")["Controller"]["VehicleSeat"].MaxSpeed = boat;
 end)
 function zigzag(X) return math.acos(math.cos(X*math.pi))/math.pi end
 
 counter = 0
 while wait(0.1)do
- game.CoreGui.UILibrary.Main.Underline.BackgroundColor3 = Color3.fromHSV(zigzag(counter),1,1)
- game.CoreGui.UILibrary.Buy.Underline.BackgroundColor3 = Color3.fromHSV(zigzag(counter),1,1)
- game.CoreGui.UILibrary.Teleport.Underline.BackgroundColor3 = Color3.fromHSV(zigzag(counter),1,1)
- game.CoreGui.UILibrary.Credits.Underline.BackgroundColor3 = Color3.fromHSV(zigzag(counter),1,1)
+ game.CoreGui.ScreenGui.Container.Main.Underline.BackgroundColor3 = Color3.fromHSV(zigzag(counter),1,1)
+ game.CoreGui.ScreenGui.Container.Teleports.Underline.BackgroundColor3 = Color3.fromHSV(zigzag(counter),1,1)
  counter = counter + 0.01
 end
