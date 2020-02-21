@@ -230,3 +230,15 @@ while wait(0.1)do
  game.CoreGui.UILibrary.Credits.Underline.BackgroundColor3 = Color3.fromHSV(zigzag(counter),1,1)
  counter = counter + 0.01
 end
+game:GetService("StarterGui"):SetCore("SendNotification", {
+  Title = "Anti-AFK";
+  Text = "~ Loaded Have Fun ~";
+  Duration = 5;
+});
+local vu = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:connect(
+function()
+vu:Button2Down(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
+wait(1)
+vu:Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
+end)
